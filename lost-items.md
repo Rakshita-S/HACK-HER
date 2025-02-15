@@ -33,4 +33,6 @@
   <footer>
     <p>&copy; 2023 UMass Amherst Lost and Found</p>
   </footer>
-  <script src="script.js">
+  <script src="script.js"></script>
+</body>
+</html>
