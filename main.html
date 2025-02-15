@@ -1,12 +1,13 @@
 # HACK-HER
 
     
+    
     <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UMass Amherst Lost and Found</title>
+  <title>Lost and Found</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,16 +17,11 @@
       <ul>
         <li><a href="#lost-items">Lost Items</a></li>
         <li><a href="#found-items">Found Items</a></li>
-        <li><a href="#report-any-item">Report any item</a></li>
+        <li><a href="#report">Report</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="welcome">
-      <h2>Welcome to the UMass Amherst Lost and Found</h2>
-      <p>If you've lost an item, you can report it here. If you've found something, check our list of found items and let us know if it's yours!</p>
-      <a href="#report-any-item" class="button">Report a Lost Item</a>
-    </section>
     <section id="lost-items">
       <h2>Lost Items</h2>
       <div id="lost-items-list"></div>
@@ -34,18 +30,28 @@
       <h2>Found Items</h2>
       <div id="found-items-list"></div>
     </section>
-    <section id="report-any-item">
+    <section id="report">
       <h2>Report Lost/Found Item</h2>
       <form id="report-form">
         <input type="text" id="item-name" placeholder="Item Name" required>
         <input type="text" id="item-description" placeholder="Item Description" required>
+        <select id="item-type">
+          <option value="lost">Lost</option>
+          <option value="found">Found</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </section>
   </main>
-  <footer>
-    <p>© 2025 UMass Amherst</p>
-  </footer>
+
+  <div id="item-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modal-item-name"></h2>
+      <p id="modal-item-description"></p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
