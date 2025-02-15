@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Found Items - UMass Amherst Lost and Found</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -40,6 +39,5 @@
   <footer>
     <p>&copy; 2023 UMass Amherst Lost and Found</p>
   </footer>
-  <script src="script.js"></script>
 </body>
 </html>
