@@ -10,6 +10,18 @@
   <header>
     <h1>UMass Amherst Lost and Found</h1>
   </header>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Lost Items - UMass Amherst Lost and Found</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>UMass Amherst Lost and Found</h1>
+  </header>
   <main>
     <section>
       <h2>Report a Lost Item</h2>
@@ -26,6 +38,10 @@
         <!-- Reported lost items will be displayed here -->
       </div>
     </section>
+    <section id="README">
+          <h2><a href="README.md" class="button">Back to the main page</a></h2>
+          <div id="main-page"></div>
+        </section>
   </main>
   <footer>
     <p>&copy; 2023 UMass Amherst Lost and Found</p>
