@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lost and Found</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,18 +25,9 @@
       <div id="found-items-list"></div>
     </section>
   </main>
-  <script src="script.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Report Lost Item</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-</html>
+
 
 
 
