@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-  <header>
-    <h1>UMass Amherst Lost and Found</h1>
-  </header>
-  <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +26,8 @@
         <!-- Reported lost items will be displayed here -->
       </div>
     </section>
-    <section id="main">
-          <h2><a href="main.md" class="button">Back to the main page</a></h2>
+    <section id="README">
+          <h2><a href="README.md" class="button">Back to the main page</a></h2>
           <div id="main-page"></div>
         </section>
   </main>
