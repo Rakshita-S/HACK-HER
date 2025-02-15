@@ -27,7 +27,7 @@
       <h2>Found Items</h2>
       <div id="found-items-list"></div>
     </section>
-    <section id="report">
+    <section id="report any item">
       <h2>Report Lost/Found Item</h2>
       <form id="report-form">
         <input type="text" id="item-name" placeholder="Item Name" required>
