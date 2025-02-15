@@ -38,8 +38,8 @@
         <!-- Reported lost items will be displayed here -->
       </div>
     </section>
-    <section id="README">
-          <h2><a href="README.md" class="button">Back to the main page</a></h2>
+    <section id="main">
+          <h2><a href="main.md" class="button">Back to the main page</a></h2>
           <div id="main-page"></div>
         </section>
   </main>
