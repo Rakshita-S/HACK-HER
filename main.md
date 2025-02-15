@@ -22,7 +22,7 @@
       <div id="lost-items-list"></div>
     </section>
     <section id="found-items">
-      <h2><a href="found-items.html" class="button">Found Items</a></h2>
+      <h2><a href="found-items.md" class="button">Found Items</a></h2>
       <div id="found-items-list"></div>
     </section>
   </main>
