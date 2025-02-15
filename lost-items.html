@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Lost Items - UMass Amherst Lost and Found</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>UMass Amherst Lost and Found</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Report a Lost Item</h2>
+      <form id="report-form">
+        <input type="text" id="item-name" placeholder="Item Name" required>
+        <input type="text" id="item-description" placeholder="Item Description" required>
+        <input type="text" id="contact-info" placeholder="Your Contact Info" required>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <section>
+      <h2>Reported Lost Items</h2>
+      <div id="lost-items-list">
+        <!-- Reported lost items will be displayed here -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 UMass Amherst Lost and Found</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
