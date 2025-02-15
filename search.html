@@ -12,19 +12,22 @@
                 .then(data => {
                     let resultsDiv = document.getElementById("results");
                     resultsDiv.innerHTML = "<h3>Search Results:</h3>";
-                    
+
                     if (data.length === 0) {
                         resultsDiv.innerHTML += "<p>No items found.</p>";
                     } else {
                         let list = "<ul>";
                         data.forEach(item => {
-                            list += <li><strong>${item.name}</strong>: ${item.description}</li>;
+                            list += `<li><strong>${item.name}</strong>: ${item.description}</li>`;  // Fixed this line
                         });
                         list += "</ul>";
                         resultsDiv.innerHTML += list;
                     }
                 })
-                .catch(error => console.error("Error:", error));
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while searching.");
+                });
         }
     </script>
 </head>
