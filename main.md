@@ -3,33 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMass Amherst Lost and Found</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: rgba(128, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: url('https://media-hosting.imagekit.io//9c07da2664804cf1/University-of-Massachusetts-Amherst-.jpg?Expires=1834270417&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=UhWqydy1CIIA9ttlOKqhhMhDpkpbnUBVnT-OY-hR5kdETx8eVSsVOW0Ot8UZjFM64b9H3zH1ORUCUWsl0ASuUTWql7tWEvVZuPRXfSGtneKI3tVB2JXOmVQ89-cANLr~3FfJGLLWaenK7b-H8WOm3eJcQXBHDxh9f9-9JK45eUChDmlwFnqZsB0nkuHNKp4nUO4Qc0aybVpIVRKpnBW~bF-M9BndXjTSwKH6tYvcwg3pd~LRbhLqdDzVNuHE9jTZSE83Sesq3LzpD4t8nedLdG4t27WpaCG144noWF47MbqZMWc9t3Yfsn-fYjtZZKowTK0M9rLSgco17QTaMUistA__') no-repeat center center fixed;
+      background-size: cover;
+      z-index: -1;
+    }
+    main {
+      margin: 20px auto;
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: white;
+      position: relative;
+      z-index: 5;
+      text-align: center;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .box {
+      flex: 1;
+      margin: 10px;
+      padding: 20px;
+      background: rgba(255, 0, 0, 0.7);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      color: white;
+      background: rgba(128, 0, 0, 0.8);
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #a00000;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>UMass Amherst Lost and Found</h1>
-    <main>
-        <section>
-            <h2>Welcome to the UMass Amherst Lost and Found</h2>
-            <p>If you've lost an item, you can report it here. If you've found something, check our list of found items and let us know if it's yours!</p>
-        </section>
-    </main>
   </header>
+  <div class="background"></div>
   <main>
-    <section id="lost-items">
-      <h2><a href="lost-items.md" class="button">Lost Items</a></h2>
-      <div id="lost-items-list"></div>
+    <section>
+      <h2>Welcome to the UMass Amherst Lost and Found</h2>
+      <p>If you've lost an item, you can report it here. If you've found something, check our list of found items and let us know if it's yours!</p>
     </section>
-    <section id="found-items">
-      <h2><a href="found-items.md" class="button">Found Items</a></h2>
-      <div id="found-items-list"></div>
-    </section>
+    <div class="button-container">
+      <div class="box">
+        <h2>Lost Items</h2>
+        <a href="lost-items.md" class="button">View Lost Items</a>
+      </div>
+      <div class="box">
+        <h2>Found Items</h2>
+        <a href="found-items.md" class="button">View Found Items</a>
+      </div>
+    </div>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
 
 
 
