@@ -46,7 +46,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMass Amherst Lost and Found</title>
     
-    <!-- Link to external CSS file -->
+    <!-- https://github.com/Rakshita-S/HACK-HER/blob/fb3c0dace8f05fc6bc3b3194c9cd371e3a3b0239/design.css -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
