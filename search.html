@@ -7,9 +7,24 @@
     <script>
         function searchItems() {
             let query = document.getElementById("searchQuery").value;
-            fetch(`/search_lost_items?query=${query}`)
-                .then(response => response.text())
-                .then(html => document.getElementById("results").innerHTML = html);
+            fetch("http://127.0.0.1:5000/search_lost_items?query=" + query)  // Calls Flask API
+                .then(response => response.json())
+                .then(data => {
+                    let resultsDiv = document.getElementById("results");
+                    resultsDiv.innerHTML = "<h3>Search Results:</h3>";
+                    
+                    if (data.length === 0) {
+                        resultsDiv.innerHTML += "<p>No items found.</p>";
+                    } else {
+                        let list = "<ul>";
+                        data.forEach(item => {
+                            list += <li><strong>${item.name}</strong>: ${item.description}</li>;
+                        });
+                        list += "</ul>";
+                        resultsDiv.innerHTML += list;
+                    }
+                })
+                .catch(error => console.error("Error:", error));
         }
     </script>
 </head>
@@ -20,18 +35,7 @@
     <input type="text" id="searchQuery" placeholder="Enter item name">
     <button onclick="searchItems()">Search</button>
 
-    <div id="results">
-        {% if items %}
-            <h3>Search Results:</h3>
-            <ul>
-                {% for item in items %}
-                    <li><strong>{{ item.name }}</strong>: {{ item.description }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>{{ message }}</p>
-        {% endif %}
-    </div>
+    <div id="results"></div>
 
 </body>
 </html>
