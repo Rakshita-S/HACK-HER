@@ -26,13 +26,11 @@
       </div>
     </section>
     <section id="main">
-          <h2><a href="main.md" class="button">Back to the main page</a></h2>
-          <div id="main-page"></div>
-        </section>
+      <h2><a href="main.md" class="button">Back to the main page</a></h2>
+      <div id="main-page"></div>
+    </section>
   </main>
   <footer>
     <p>&copy; 2023 UMass Amherst Lost and Found</p>
   </footer>
-  <script src="script.js"></script>
-</body>
-</html>
+  <script src="script.js">
