@@ -34,7 +34,7 @@
         </div>
         <!-- More found items can be added here -->
       </div>
-      <a href="index.html" class="button">Back to Main Page</a>
+      <a href="main.md" class="button">Back to Main Page</a>
     </section>
   </main>
   <footer>
