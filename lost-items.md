@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <title>Report Lost Items - UMass Amherst Lost and Found</title>
 </head>
 <body>
   <header>
@@ -26,7 +27,7 @@
       </div>
     </section>
     <section id="main">
-      <h2><a href="main.md" class="button">Back to the main page</a></h2>
+      <h2><a href="index.html" class="button">Back to the main page</a></h2>
       <div id="main-page"></div>
     </section>
   </main>
