@@ -27,7 +27,7 @@
       </div>
     </section>
     <section id="main">
-      <h2><a href="index.html" class="button">Back to the main page</a></h2>
+      <h2><a href="main.md" class="button">Back to the main page</a></h2>
       <div id="main-page"></div>
     </section>
   </main>
