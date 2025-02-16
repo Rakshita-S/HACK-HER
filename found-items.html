@@ -83,6 +83,11 @@
        margin: 10px 0;
        border-radius: 5px;
      }
+     .uploaded-item img {
+       max-width: 100px;
+       max-height: 100px;
+       border-radius: 5px;
+     }
      .tab-content {
        display: none;
      }
@@ -129,47 +134,37 @@
    </footer>
    <script>
      // Handle file upload form submission
-     document.getElementById('upload-form').addEventListener('submit', async function(event) {
+     document.getElementById('upload-form').addEventListener('submit', function(event) {
        event.preventDefault();
 
        const formData = new FormData(event.target);
-       const response = await fetch('/upload', {
-         method: 'POST',
-         body: formData
-       });
+       const file = formData.get('file');
+       const description = formData.get('description');
+       const contactInfo = formData.get('contact-info');
 
-       const result = await response.text();
-       alert(result);
+       // Create a new uploaded item entry
+       const uploadedItem = document.createElement('div');
+       uploadedItem.classList.add('uploaded-item');
+       const imgElement = document.createElement('img');
+       imgElement.src = URL.createObjectURL(file);
+       imgElement.alt = description;
+       const descElement = document.createElement('p');
+       descElement.textContent = `Description: ${description}`;
+       const contactElement = document.createElement('p');
+       contactElement.textContent = `Contact Info: ${contactInfo}`;
 
-       // Fetch and display the uploaded files
-       fetchImages();
+       uploadedItem.appendChild(imgElement);
+       uploadedItem.appendChild(descElement);
+       uploadedItem.appendChild(contactElement);
+
+       document.getElementById('gallery').appendChild(uploadedItem);
+
+       // Clear the form
+       event.target.reset();
+
+       // Switch to found items tab
+       showTab('found-tab');
      });
-
-     async function fetchImages() {
-       const response = await fetch('/files');
-       const images = await response.json();
-
-       const gallery = document.getElementById('gallery');
-       gallery.innerHTML = '';
-
-       images.forEach(image => {
-           const imgElement = document.createElement('img');
-           imgElement.src = `/uploads/${image.filename}`;
-           imgElement.alt = image.description;
-
-           const descElement = document.createElement('p');
-           descElement.textContent = image.description;
-
-           const container = document.createElement('div');
-           container.classList.add('uploaded-item');
-           container.appendChild(imgElement);
-           container.appendChild(descElement);
-
-           gallery.appendChild(container);
-       });
-     }
-
-     fetchImages();
 
      // Tab functionality
      const tabLinks = document.querySelectorAll('.tab-link');
@@ -187,6 +182,13 @@
          document.getElementById(targetTab).classList.add('active');
        });
      });
+
+     function showTab(tabId) {
+       tabContents.forEach(content => {
+         content.classList.remove('active');
+       });
+       document.getElementById(tabId).classList.add('active');
+     }
    </script>
 </body>
 </html>
