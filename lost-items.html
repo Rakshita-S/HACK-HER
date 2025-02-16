@@ -106,7 +106,7 @@
   </header>
   <nav>
     <a href="#report-tab" class="tab-link" data-tab="report-tab">Report Lost Item</a>
-    <a href="#reported-tab" class="tab-link" data-tab="reported-tab">Reported Items</a>
+    <a href="view-lost-items.html" class="tab-link" data-tab="view-lost-items.html">Reported Items</a>
   </nav>
   <main>
     <section id="report-tab" class="tab-content active">
@@ -155,7 +155,7 @@
       document.getElementById('report-form').reset();
 
       // Switch to reported items tab
-      showTab('reported-tab');
+      window.location.href = 'view-lost-items.html';
     });
 
     // Tab functionality
@@ -184,4 +184,5 @@
   </script>
 </body>
 </html>
+
 
