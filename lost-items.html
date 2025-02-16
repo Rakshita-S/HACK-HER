@@ -5,35 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Report Lost Items - UMass Amherst Lost and Found</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+    header {
+      background: rgba(128, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      margin: 20px auto;
+      max-width: 800px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      color: white;
+      background: rgba(128, 0, 0, 0.8);
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #a00000;
+    }
+    main {
+      margin: 20px auto;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: black;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      color: white;
+      background: rgba(128, 0, 0, 0.8);
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #a00000;
+    }
+    input {
+      width: 80%;
+      padding: 5px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: rgba(128, 0, 0, 0.8);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px; /* Added to ensure spacing below the contact info field */
+    }
+    button:hover {
+      background: #a00000;
+    }
+    footer {
+      background: rgba(128, 0, 0, 0.8);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>UMass Amherst Lost and Found</h1>
   </header>
   <main>
-    <section>
+    <section id="report-tab" class="tab-content active">
       <h2>Report a Lost Item</h2>
       <form id="report-form">
         <input type="text" id="item-name" placeholder="Item Name" required>
         <input type="text" id="item-description" placeholder="Item Description" required>
         <input type="text" id="contact-info" placeholder="Your Contact Info" required>
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button> <!-- Submit button directly under contact info -->
       </form>
-    </section>
-    <section>
-      <h2>Reported Lost Items</h2>
-      <div id="lost-items-list">
-        <!-- Reported lost items will be displayed here -->
-      </div>
     </section>
     <section id="main">
       <h2><a href="main.html" class="button">Back to the main page</a></h2>
-      <div id="main"></div>
     </section>
   </main>
   <footer>
     <p>&copy; 2025 UMass Amherst Lost and Found</p>
   </footer>
-  <script src="display-lost.js"></script>
 </body>
 </html>
