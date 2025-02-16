@@ -52,7 +52,7 @@
        border-radius: 5px;
      }
      img {
-       max-width: 200px; /* Smaller image size */
+       max-width: 200px;
        max-height: 200px;
        height: auto;
        width: auto;
@@ -82,9 +82,14 @@
    <nav>
      <a href="#report-tab" class="tab-link" data-tab="report-tab">Report Found Item</a>
      <a href="#found-tab" class="tab-link" data-tab="found-tab">Found Items</a>
+     <a href="#main-tab" class="tab-link" data-tab="main-tab">Back to Main Page</a>
    </nav>
    <main>
-       <section id="report-tab" class="tab-content active">
+       <section id="main-tab" class="tab-content active">
+           <h2>Welcome to the UMass Amherst Lost and Found</h2>
+           <p>Select a tab above to report or view found items.</p>
+       </section>
+       <section id="report-tab" class="tab-content">
            <h2>FOUND AN ITEM?</h2>
            <h3>Report Below</h3>
            <form id="upload-form">
@@ -182,3 +187,4 @@
    </script>
 </body>
 </html>
+
