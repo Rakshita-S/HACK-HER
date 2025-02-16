@@ -77,7 +77,7 @@
 </head>
 <body>
    <header>
-       <h1>Login</h1>
+       <h1>UMASS AMHERST LOST AND FOUND</h1>
    </header>
    <div class="background"></div>
    <main>
@@ -86,7 +86,7 @@
            <form id="login-form">
                <input type="text" id="username" name="username" placeholder="Username" required>
                <input type="email" id="email" name="email" placeholder="Email Address" required>
-               <input type="text" id="password" name="password" placeholder="password" required>
+               <input type="password" id="password" name="password" placeholder="Password" required>
                <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number" required>
                <button type="submit">Submit</button>
            </form>
@@ -95,107 +95,12 @@
    <footer>
        <p>&copy; 2025 UMass Amherst Lost and Found</p>
    </footer>
-   <script src="script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="styles.css">
-   <title>Login Page</title>
-   <style>
-     body {
-       font-family: Arial, sans-serif;
-       margin: 0;
-       padding: 0;
-       background: #f4f4f4;
-     }
-     header {
-       background: rgba(128, 0, 0, 0.8);
-       color: white;
-       padding: 20px;
-       text-align: center;
-       position: relative;
-       z-index: 10;
-     }
-     .background {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100vh;
-       background: url('https://media-hosting.imagekit.io//9c07da2664804cf1/University-of-Massachusetts-Amherst-.jpg?Expires=1834270417&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=UhWqydy1CIIA9ttlOKqhhMhDpkpbnUBVnT-OY-hR5kdETx8eVSsVOW0Ot8UZjFM64b9H3zH1ORUCUWsl0ASuUTWql7tWEvVZuPRXfSGtneKI3tVB2JXOmVQ89-cANLr~3FfJGLLWaenK7b-H8WOm3eJcQXBHDxh9f9-9JK45eUChDmlwFnqZsB0nkuHNKp4nUO4Qc0aybVpIVRKpnBW~bF-M9BndXjTSwKH6tYvcwg3pd~LRbhLqdDzVNuHE9jTZSE83Sesq3LzpD4t8nedLdG4t27WpaCG144noWF47MbqZMWc9t3Yfsn-fYjtZZKowTK0M9rLSgco17QTaMUistA__') no-repeat center center fixed;
-       background-size: cover;
-       z-index: -1;
-     }
-     main {
-       margin: 20px auto;
-       max-width: 800px;
-       background: rgba(0, 0, 0, 0.5);
-       padding: 20px;
-       border-radius: 10px;
-       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-       color: white;
-       position: relative;
-       z-index: 5;
-       text-align: center;
-     }
-     .button {
-       display: inline-block;
-       padding: 10px 20px;
-       color: white;
-       background: rgba(128, 0, 0, 0.8);
-       text-decoration: none;
-       border-radius: 5px;
-       transition: 0.3s;
-     }
-     .button:hover {
-       background: #a00000;
-     }
-     input {
-       width: 100%;
-       padding: 10px;
-       margin: 10px 0;
-       border: none;
-       border-radius: 5px;
-     }
-     button {
-       background: #4CAF50;
-       color: white;
-       border: none;
-       padding: 10px 20px;
-       border-radius: 5px;
-       cursor: pointer;
-       transition: 0.3s;
-     }
-     button:hover {
-       background: #45a049;
-     }
-   </style>
-</head>
-<body>
-   <header>
-       <h1>Login</h1>
-   </header>
-   <div class="background"></div>
-   <main>
-       <section>
-           <h2>Please Log In</h2>
-           <form id="login-form">
-               <input type="text" id="username" name="username" placeholder="Username" required>
-               <input type="email" id="email" name="email" placeholder="Email Address" required>
-               <input type="text" id="password" name="password" placeholder="password" required>
-               <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number" required>
-               <button type="submit">Submit</button>
-           </form>
-       </section>
-   </main>
-   <footer>
-       <p>&copy; 2025 UMass Amherst Lost and Found</p>
-   </footer>
-   <script src="script.js"></script>
+   <script>
+     // Redirect to main.html on form submission
+     document.getElementById('login-form').addEventListener('submit', function(event) {
+       event.preventDefault(); // Prevent the form from submitting normally
+       window.location.href = 'main.html'; // Redirect to main.html
+     });
+   </script>
 </body>
 </html>
