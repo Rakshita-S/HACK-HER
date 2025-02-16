@@ -45,48 +45,17 @@
        color: black;
        text-align: center;
      }
-     .button {
-       display: inline-block;
-       padding: 10px 20px;
-       color: white;
-       background: rgba(128, 0, 0, 0.8);
-       text-decoration: none;
-       border-radius: 5px;
-       transition: 0.3s;
-       margin: 10px;
-     }
-     .button:hover {
-       background: #a00000;
-     }
-     input {
-       width: 80%;
-       padding: 5px;
-       margin: 10px 0;
-       border: 1px solid #ccc;
-       border-radius: 5px;
-     }
-     button {
-       background: rgba(128, 0, 0, 0.8);
-       color: white;
-       border: none;
-       padding: 10px 20px;
-       border-radius: 5px;
-       cursor: pointer;
-       transition: 0.3s;
-       margin-top: 10px;
-     }
-     button:hover {
-       background: #a00000;
-     }
      .uploaded-item {
        background: rgba(255, 0, 0, 0.1);
        padding: 10px;
        margin: 10px 0;
        border-radius: 5px;
      }
-     .uploaded-item img {
-       max-width: 100px;
-       max-height: 100px;
+     img {
+       max-width: 200px; /* Smaller image size */
+       max-height: 200px;
+       height: auto;
+       width: auto;
        border-radius: 5px;
      }
      .tab-content {
@@ -118,82 +87,101 @@
        <section id="report-tab" class="tab-content active">
            <h2>FOUND AN ITEM?</h2>
            <h3>Report Below</h3>
-           <form id="upload-form" enctype="multipart/form-data">
-               <input type="file" name="file" accept="image/png" required>
-               <input type="text" name="description" placeholder="Description" required>
-               <input type="text" name="contact-info" placeholder="Contact Info" required>
+           <form id="upload-form">
+               <input type="file" id="file-input" accept="image/*" required>
+               <input type="text" id="description" placeholder="Description" required>
+               <input type="text" id="contact-info" placeholder="Contact Info" required>
                <button type="submit">Submit</button>
            </form>
-           <a href="main.html" class="button">Back to Main Page</a>
        </section>
        <section id="found-tab" class="tab-content">
            <h2>Found Items</h2>
            <div id="gallery"></div>
-           <a href="main.html" class="button">Back to Main Page</a>
        </section>
    </main>
    <footer>
        <p>&copy; 2025 UMass Amherst Lost and Found</p>
    </footer>
    <script>
-     // Handle file upload form submission
+     function saveToLocalStorage(item) {
+       let items = JSON.parse(localStorage.getItem('foundItems')) || [];
+       items.push(item);
+       localStorage.setItem('foundItems', JSON.stringify(items));
+     }
+
+     function loadFromLocalStorage() {
+       const gallery = document.getElementById('gallery');
+       gallery.innerHTML = '';
+       const items = JSON.parse(localStorage.getItem('foundItems')) || [];
+       items.forEach(item => addToDOM(item));
+     }
+
+     function addToDOM(item) {
+       const container = document.createElement('div');
+       container.classList.add('uploaded-item');
+
+       const imgElement = document.createElement('img');
+
+
+       imgElement.src = item.image;
+       imgElement.alt = item.description;
+
+       const descElement = document.createElement('p');
+       descElement.textContent = item.description;
+
+       const contactElement = document.createElement('p');
+       contactElement.textContent = `Contact: ${item.contact}`;
+
+       container.appendChild(imgElement);
+       container.appendChild(descElement);
+       container.appendChild(contactElement);
+       document.getElementById('gallery').appendChild(container);
+     }
+
      document.getElementById('upload-form').addEventListener('submit', function(event) {
        event.preventDefault();
 
-       const formData = new FormData(event.target);
-       const file = formData.get('file');
-       const description = formData.get('description');
-       const contactInfo = formData.get('contact-info');
+       const fileInput = document.getElementById('file-input');
+       const description = document.getElementById('description').value;
+       const contactInfo = document.getElementById('contact-info').value;
+       const file = fileInput.files[0];
 
-       // Create a new uploaded item entry
-       const uploadedItem = document.createElement('div');
-       uploadedItem.classList.add('uploaded-item');
-       const imgElement = document.createElement('img');
-       imgElement.src = URL.createObjectURL(file);
-       imgElement.alt = description;
-       const descElement = document.createElement('p');
-       descElement.textContent = `Description: ${description}`;
-       const contactElement = document.createElement('p');
-       contactElement.textContent = `Contact Info: ${contactInfo}`;
+       if (file) {
+         const reader = new FileReader();
+         reader.onload = function(e) {
+           const item = {
+             image: e.target.result,
+             description: description,
+             contact: contactInfo
+           };
+           saveToLocalStorage(item);
+           addToDOM(item);
+         };
+         reader.readAsDataURL(file);
+       }
 
-       uploadedItem.appendChild(imgElement);
-       uploadedItem.appendChild(descElement);
-       uploadedItem.appendChild(contactElement);
-
-       document.getElementById('gallery').appendChild(uploadedItem);
-
-       // Clear the form
-       event.target.reset();
-
-       // Switch to found items tab
+       fileInput.value = '';
+       document.getElementById('description').value = '';
+       document.getElementById('contact-info').value = '';
        showTab('found-tab');
      });
 
-     // Tab functionality
-     const tabLinks = document.querySelectorAll('.tab-link');
-     const tabContents = document.querySelectorAll('.tab-content');
-
-     tabLinks.forEach(link => {
-       link.addEventListener('click', function(event) {
-         event.preventDefault();
-         const targetTab = this.getAttribute('data-tab');
-
-         tabContents.forEach(content => {
-           content.classList.remove('active');
-         });
-
-         document.getElementById(targetTab).classList.add('active');
-       });
-     });
-
      function showTab(tabId) {
-       tabContents.forEach(content => {
+       document.querySelectorAll('.tab-content').forEach(content => {
          content.classList.remove('active');
        });
        document.getElementById(tabId).classList.add('active');
      }
+
+     document.querySelectorAll('.tab-link').forEach(link => {
+       link.addEventListener('click', function(event) {
+         event.preventDefault();
+         showTab(this.getAttribute('data-tab'));
+       });
+     });
+
+     window.onload = loadFromLocalStorage;
    </script>
 </body>
 </html>
-
 
