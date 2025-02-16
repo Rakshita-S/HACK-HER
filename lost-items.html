@@ -83,12 +83,6 @@
       margin: 10px 0;
       border-radius: 5px;
     }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
     footer {
       background: rgba(128, 0, 0, 0.8);
       color: white;
@@ -104,12 +98,8 @@
   <header>
     <h1>UMass Amherst Lost and Found</h1>
   </header>
-  <nav>
-    <a href="#report-tab" class="tab-link" data-tab="report-tab">Report Lost Item</a>
-    <a href="view-lost-items.html" class="tab-link" data-tab="view-lost-items.html">Reported Items</a>
-  </nav>
   <main>
-    <section id="report-tab" class="tab-content active">
+    <section>
       <h2>Report a Lost Item</h2>
       <form id="report-form">
         <input type="text" id="item-name" placeholder="Item Name" required>
@@ -118,9 +108,9 @@
         <button type="submit">Submit</button> <!-- Submit button directly under contact info -->
       </form>
     </section>
-    <section id="reported-tab" class="tab-content">
-      <h2>Reported Items</h2>
-      <div id="reported-items-list"></div>
+    <section id="reported-items-button">
+      <h2>View Reported Items</h2>
+      <a href="view-lost-items.html" class="button">Reported Items</a> <!-- Button to view reported items -->
     </section>
     <section id="main">
       <h2><a href="main.html" class="button">Back to the main page</a></h2>
@@ -129,59 +119,6 @@
   <footer>
     <p>&copy; 2025 UMass Amherst Lost and Found</p>
   </footer>
-  <script>
-    // Handle form submission
-    document.getElementById('report-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the form from refreshing the page
-
-      // Get form values
-      const itemName = document.getElementById('item-name').value;
-      const itemDescription = document.getElementById('item-description').value;
-      const contactInfo = document.getElementById('contact-info').value;
-
-      // Create a new reported item entry
-      const reportedItem = document.createElement('div');
-      reportedItem.classList.add('reported-item');
-      reportedItem.innerHTML = `
-        <h3>${itemName}</h3>
-        <p>${itemDescription}</p>
-        <p>Contact: ${contactInfo}</p>
-      `;
-
-      // Add the new reported item entry to the list
-      document.getElementById('reported-items-list').appendChild(reportedItem);
-
-      // Clear the form
-      document.getElementById('report-form').reset();
-
-      // Switch to reported items tab
-      window.location.href = 'view-lost-items.html';
-    });
-
-    // Tab functionality
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetTab = this.getAttribute('data-tab');
-
-        tabContents.forEach(content => {
-          content.classList.remove('active');
-        });
-
-        document.getElementById(targetTab).classList.add('active');
-      });
-    });
-
-    function showTab(tabId) {
-      tabContents.forEach(content => {
-        content.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
-    }
-  </script>
 </body>
 </html>
 
